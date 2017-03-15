@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=typeof title == 'undefined' ? 'App Chat' : title%></title>
+    <title><%=typeof title == 'undefined' ? 'Chat Application' : title%></title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,11 +29,57 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
   </head>
-
+    
   <body>
+      <header>
+		<!---<nav>
+			<ul>
+				<li><a href="#"><span ><i class="icon icon-home"></i></span><b>Inicio</b></a></li>
+				<li><a href="#"><span ><i class="icon icon-paragraph-justify"></i></span><b><i>Categorias</i></b></a>
+		
+				</li>
+				<li><a href="#"><span ><i class="icon icon-book"></i></span><b><i>Servicios</i></b></a>
+
+				</li>
+				<li><a href="#"><span ><i class="icon icon-price-tag"></i></span><b><i>Acerca de</i></b></a></li>
+				<li><a href="#"><span ><i class="icon icon-mail2"></i></span><b><i>Contacto</i></b></a></li>
+			</ul>
+		</nav>-->
+	  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">GO!</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <ul class="nav navbar-nav">
+           
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home</a></li>
+            
+            <% if(!session.authenticated){ %>
+                <li><a href="/user/new">Registrarse</a></li>
+                <li class=""><a href="/session/new">Iniciar Sesion </a></li>
+            <% } %>  
+            <% if(session.authenticated){ %>
+              <li class=""><a href="/session/destroy">Cerrar Sesion </a></li>
+            <% } %>  
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	</header>
+      <br><br><br>
     <%- body %>
 
 
@@ -89,6 +135,9 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/jquery-3.1.1.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
