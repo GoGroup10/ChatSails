@@ -14,9 +14,10 @@ module.exports = {
         var userObj={
             name:req.param('name'),
             lastname:req.param('lastname'),
-            username:req.param('username'),
+            nick:req.param('nick'),
             email:req.param('email')
         }
+        console.log(userObj)
         User.create(userObj,function(err,user){
             if(err){
                 return res.redirect('user/new')
@@ -49,7 +50,7 @@ module.exports = {
         var userObj={
             name:req.param('name'),
             lastname:req.param('lastname'),
-            username:req.param('username'),
+            nick:req.param('nick'),
             email:req.param('email'),
         }
         User.update(req.param('id'),userObj,function userUpdated(err,user){
